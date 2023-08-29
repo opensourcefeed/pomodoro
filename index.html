@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Pomodoro App</title>
+    <meta name="description"
+        content="An online Pomodoro tracker app to improve your concentration and focus on your work effectively" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            text-align: center;
+            font-family: sans-serif;
+        }
+
+        .Section {
+            min-height: 100vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .App {
+            background-color: #a10642;
+            color: white;
+        }
+
+        .Statistics {
+            background-color: #6A3874;
+            color: white;
+            justify-content: flex-start;
+            padding-top: 20vh;
+        }
+
+        .Statistics h2 {
+            font-size: 3rem;
+        }
+
+        .Statistics h3 {
+            font-size: 2rem;
+            margin-bottom: 0;
+            padding-bottom: 0;
+            line-height: 0rem;
+        }
+
+        .Period {
+            display: flex;
+            width: 100%;
+            max-width: 540px;
+            justify-content: space-evenly;
+            flex-direction: column;
+        }
+
+        .Period>div+div {
+            margin-top: 2rem;
+        }
+
+        .Period .Time {
+            font-size: 4rem;
+        }
+
+        .FAQ {
+            background-color: #49A062;
+            color: yellow;
+        }
+
+        .Footer {
+            background-color: #00C9B1;
+            columns: blue;
+        }
+
+        .intro {
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #0004;
+        }
+
+        .Heading {
+            font-size: 2.2rem;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 0rem;
+            margin-top: 1rem;
+        }
+
+        .description {
+            color: yellow;
+            margin: 0;
+        }
+
+        .Timer {
+            width: 200px;
+            height: 200px;
+            box-shadow: 0 0 8px orange, inset 0 0 8px orange;
+            font-size: 72px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+        }
+
+        .controls {
+            height: 100px;
+            display: flex;
+            align-items: center;
+        }
+
+        .ActionButton {
+            font-weight: bold;
+            border-radius: 0.4rem;
+            padding: 0.5rem 1rem;
+            margin: 1rem;
+            border: none;
+            background-color: white;
+            cursor: pointer;
+        }
+
+        .ActionButton:disabled {
+            cursor: not-allowed;
+        }
+
+        @media (min-width: 576px) {
+            .Heading {
+                font-size: 72px;
+            }
+
+            .Timer {
+                width: 240px;
+                height: 240px;
+                font-size: 84px;
+            }
+
+            .Period {
+                flex-direction: row;
+            }
+
+            .Period div+div {
+                margin-top: initial;
+            }
+        }
+
+        .Progress {
+            display: flex;
+            height: 100px;
+            align-items: center;
+        }
+
+        .Indicator {
+            margin: 0 1rem;
+        }
+
+        .Timer.Animate {
+            animation: pulse 2s linear 1s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 8px orange, inset 0 0 8px orange;
+            }
+
+            50% {
+                box-shadow: 0 0 16px yellow, inset 0 0 14px yellow;
+            }
+
+            100% {
+                box-shadow: 0 0 8px orange, inset 0 0 8px orange;
+            }
+        }
+
+        .message {
+            margin-bottom: 1rem;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        /* Popup CSS */
+
+        /* .pop {
+            position: absolute;
+            width: 50%;
+            margin: auto;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        } */
+
+        /* @media (max-width: 640px) {
+            .pop {
+                position: relative;
+                width: 100%;
+            }
+        } */
+
+        .pop .modal {
+            z-index: 2;
+            opacity: 0;
+            visibility: hidden;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            transition: opacity 500ms ease-in-out;
+        }
+
+        .pop .modal__inner {
+            transform: translate(-50%, -50%) scale(0.75);
+            top: 50%;
+            left: 50%;
+            width: 50%;
+            background: white;
+            padding: 30px;
+            position: absolute;
+            color: black;
+        }
+
+        @media (max-width: 640px) {
+            .pop .modal__inner {
+                width: 100%;
+            }
+        }
+
+        .pop label {
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .pop label.open {
+            color: turquoise;
+            transition: color 200ms ease-in-out;
+            text-decoration: underline;
+        }
+
+        .pop label.open:hover {
+            color: paleturquoise;
+        }
+
+        .pop input {
+            display: none;
+        }
+
+        .pop input:checked+.modal {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .pop input:checked+.modal .modal__inner {
+            transform: translate(-50%, -50%) scale(1);
+            transition: all 200ms ease-in-out;
+        }
+
+        .pop input:checked+.modal .modal__inner p {
+            font-size: 1.25rem;
+            line-height: 125%;
+        }
+
+        .pop input:checked+.modal label {
+            background: #49A062;
+            transition: all 200ms ease-in-out;
+            padding: 0.5rem 1rem;
+            color: white;
+            border-radius: 0.5rem;
+        }
+
+        .pop input:checked+.modal label:hover {
+            background: green;
+        }
+
+        /* End of popup CSS */
+    </style>
+
+</head>
+
+<body>
+    <div class="Section App Active">
+        <div class="intro">
+            <h1 class="Heading">
+                Pomodoro App
+            </h1>
+            <p class="description">
+                Focus on your task & improve productivity
+            </p>
+        </div>
+        <div class="message">It is time focus.</div>
+        <div id="Time" class="Timer">
+            25:00
+        </div>
+        <div class="controls">
+            <button id="StartBtn" class="ActionButton">
+                START
+            </button>
+            <button id="SkipBtn" class="ActionButton">
+                SKIP
+            </button>
+        </div>
+        <div class="Progress">
+            <div class="Indicator">
+                <img alt="progress-indiator-1" src="img/progress.png" />
+            </div>
+            <div class="Indicator">
+                <img alt="progress-indiator-2" src="img/progress.png" />
+            </div>
+            <div class="Indicator">
+                <img alt="progress-indiator-3" src="img/progress.png" />
+            </div>
+            <div class="Indicator">
+                <img alt="progress-indiator-4" src="img/progress.png" />
+            </div>
+        </div>
+
+        <div class="pop">
+            <input type="checkbox" id="cycleCompleted" />
+            <div class="modal">
+                <div class="modal__inner">
+                    <p>You have succesfully completed a pomodoro cycle. Please take a break and come back</p>
+                    <label for="cycleCompleted">OK</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="Section Statistics">
+        <h2>STATISTICS</h2>
+        <h3>Focus Time</h3>
+        <p>(HH:MM:SS)</p>
+        <div class="Period">
+            <div>
+                <div>TODAY</div>
+                <div>
+                    <span class="Time" id="focusToday">0.0</span><span></span>
+                </div>
+            </div>
+            <div>
+                <div>ALL TIME</div>
+                <div>
+                    <span class="Time" id="focusEveryDay">0.0</span><span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="Section FAQ">
+        <h2>FAQ</h2>
+    </div>
+    <div class="Section Footer">
+        <div>
+            <p>A product of</p>
+            <h2>Tahrik Studio</h2>
+        </div>
+    </div>
+
+    <script>
+
+        // Constants
+        const STATES = {
+            WORK: 'WORK',
+            BREAK: 'BREAK',
+            LONG_BREAK: 'LONG_BREAK',
+        }
+
+        const STORAGE_KEYS = {
+            FOCUS_TODAY: 'FOCUS_TODAY',
+            FOCUS_ALLTIME: 'FOCUS_ALLTIME',
+        }
+
+        const progressImgs = document.querySelectorAll('.Progress .Indicator img')
+        // Duration in seconds
+        const WORK_DURATION = 25 * 60;
+        const BREAK_DURATION = 5 * 60;
+
+        const startButton = document.querySelector('#StartBtn');
+        const skipButton = document.querySelector('#SkipBtn')
+        const Timer = document.getElementById('Time');
+        const messageElt = document.querySelector('.message');
+        const focusToday = document.getElementById('focusToday');
+        const focusEveryDay = document.getElementById('focusEveryDay');
+        const appElt = document.querySelector('.App');
+        const APP_NAME = 'Pomodoro App';
+        // End of constants
+
+        // State Variables
+        let currentState = STATES.WORK
+        let pomodoroCount = 0;
+        let startTime;
+        // End of state variables
+
+        // Utility functions
+        const zeroPad = (num, places) => String(num).padStart(places, '0')
+
+        function formattedTime(totalSeconds) {
+            const hours = Math.floor(totalSeconds / (60 * 60))
+            totalSeconds = totalSeconds % (60 * 60);
+            const minutes = Math.floor(totalSeconds / 60);
+            const seconds = Math.floor(totalSeconds % 60);
+            return (hours > 0 ? (zeroPad(hours, 2) + ':') : '') + zeroPad(minutes, 2) + ':' + zeroPad(seconds, 2);
+        }
+
+        function setTime(totalSeconds) {
+            const formatted = formattedTime(totalSeconds);
+            Timer.innerHTML = formatted
+            document.title = formatted + ' - ' + (currentState === STATES.WORK ? 'Time to focus!' : 'Time for break!');
+        }
+
+        function requestPermission() {
+            if (!('Notification' in window)) {
+                alert('Notification API not supported!');
+                return;
+            }
+
+            Notification.requestPermission(function (result) {
+                console.log('Notification permission status', result)
+            });
+        }
+
+        function nonPersistentNotification(message) {
+            if (!('Notification' in window)) {
+                alert('Notification API not supported!');
+                return;
+            }
+
+            try {
+                var notification = new Notification(message);
+            } catch (err) {
+                alert(message)
+            }
+        }
+        // End of utility functions
+
+
+
+
+        function updateStatistics() {
+            for (let i = 0; i < 4; i++) {
+                const img = progressImgs[i]
+                if (i < pomodoroCount && img.getAttribute('src') != 'img/progress-filled.png') {
+                    img.setAttribute('src', 'img/progress-filled.png')
+                } else if (i >= pomodoroCount && img.getAttribute('src') != 'img/progress.png') {
+                    img.setAttribute('src', 'img/progress.png')
+                }
+            }
+            if (currentState === STATES.WORK) {
+                setTime(WORK_DURATION)
+                messageElt.innerHTML = 'It is time to focus.';
+                skipButton.style.display = 'none';
+            } else {
+                setTime(BREAK_DURATION)
+                messageElt.innerHTML = 'It is break time';
+                skipButton.style.display = 'block';
+            }
+
+            // Update statistics section
+            const dayKey = new Date();
+            dayKey.setHours(0, 0, 0, 0);
+            const todayFocusTime = Number(localStorage.getItem(STORAGE_KEYS.FOCUS_TODAY + dayKey.getTime()) ?? '0.0');
+            const totalFocusTime = Number(localStorage.getItem(STORAGE_KEYS.FOCUS_ALLTIME) ?? '0.0');
+            focusToday.innerHTML = formattedTime(todayFocusTime);
+            focusEveryDay.innerHTML = formattedTime(totalFocusTime);
+        }
+
+        // Init
+        updateStatistics()
+        requestPermission()
+        // End of Init
+
+
+
+        const updateTime = () => {
+            if (!startTime) {
+                startButton.removeAttribute('disabled');
+                return;
+            }
+            const diff = new Date().getTime() - startTime.getTime();
+            const remaining = (currentState == STATES.WORK ? WORK_DURATION : BREAK_DURATION) - diff / 1000;
+            console.log('Remaining', remaining);
+            if (remaining >= 0) {
+                setTime(remaining)
+                setTimeout(updateTime, 1000);
+            } else {
+                startButton.removeAttribute('disabled');
+                if (currentState === STATES.WORK) {
+                    pomodoroCount = (pomodoroCount + 1) % 4;
+                    currentState = STATES.BREAK;
+                    const dayKey = new Date();
+                    dayKey.setHours(0, 0, 0, 0);
+                    let todayFocusTime = Number(localStorage.getItem(STORAGE_KEYS.FOCUS_TODAY + dayKey.getTime()) ?? '0.0');
+                    let totalFocusTime = Number(localStorage.getItem(STORAGE_KEYS.FOCUS_ALLTIME) ?? '0.0');
+
+                    todayFocusTime += WORK_DURATION;
+                    totalFocusTime += WORK_DURATION;
+
+                    localStorage.setItem(STORAGE_KEYS.FOCUS_TODAY + dayKey.getTime(), todayFocusTime);
+                    localStorage.setItem(STORAGE_KEYS.FOCUS_ALLTIME, totalFocusTime);
+
+                    appElt.scrollIntoView({
+                        behavior: 'smooth'
+                    })
+
+                    if (pomodoroCount === 0) {
+                        document.getElementById('cycleCompleted').click();
+                    }
+                    nonPersistentNotification('Completed the work period, please take a break and come back')
+                } else {
+                    currentState = STATES.WORK;
+                    nonPersistentNotification('Completed the break period, please take a break and come back')
+                }
+                updateStatistics();
+                Timer.classList.remove('Animate')
+            }
+        }
+
+        startButton.addEventListener('click', () => {
+            startTime = new Date();
+            startButton.setAttribute('disabled', 'disabled')
+            updateTime();
+            Timer.classList.add('Animate')
+        })
+
+        skipButton.addEventListener('click', () => {
+            currentState = STATES.WORK;
+            updateStatistics();
+            startTime = undefined;
+            Timer.classList.remove('Animate')
+        })
+    </script>
+</body>
+
+</html>
