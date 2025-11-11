@@ -1,34 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <!-- Basic Meta -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#ff6b6b" />
+    <!-- Basic Meta -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ff6b6b" />
 
-  <!-- SEO & Social -->
-  <title>Pomodoro Timer: Focus, Break, Track | Free Productivity App</title>
-  <meta name="description" content="Boost productivity with this modern Pomodoro timer. Custom focus sessions, short/long breaks, stats, notifications, and keyboard shortcuts. Free & open-source." />
-  <meta name="keywords" content="pomodoro timer, focus app, productivity tool, time management, work break timer" />
-  <meta name="author" content="Tahrik Studio" />
-  <meta name="robots" content="index, follow" />
+    <!-- SEO & Social -->
+    <title>Pomodoro Timer: Focus, Break, Track | Free Productivity App</title>
+    <meta name="description"
+        content="Boost productivity with this modern Pomodoro timer. Custom focus sessions, short/long breaks, stats, notifications, and keyboard shortcuts. Free & open-source." />
+    <meta name="keywords" content="pomodoro timer, focus app, productivity tool, time management, work break timer" />
+    <meta name="author" content="Tahrik Studio" />
+    <meta name="robots" content="index, follow" />
 
-  <!-- Open Graph / Social Sharing -->
-  <meta property="og:title" content="Pomodoro Timer: Focus, Break, Track | Free Productivity App" />
-  <meta property="og:description" content="Stay focused with customizable Pomodoro sessions, progress tracking, and notifications. Perfect for students, developers, and remote workers." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://yourdomain.com/pomodoro" />
-  <meta property="og:image" content="https://yourdomain.com/og-pomodoro.jpg" />
-  <meta property="og:site_name" content="Tahrik Studio" />
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:title" content="Pomodoro Timer: Focus, Break, Track | Free Productivity App" />
+    <meta property="og:description"
+        content="Stay focused with customizable Pomodoro sessions, progress tracking, and notifications. Perfect for students, developers, and remote workers." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yourdomain.com/pomodoro" />
+    <meta property="og:image" content="https://yourdomain.com/og-pomodoro.jpg" />
+    <meta property="og:site_name" content="Tahrik Studio" />
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Pomodoro Timer: Focus, Break, Track" />
-  <meta name="twitter:description" content="Free Pomodoro app with stats, notifications, and keyboard shortcuts." />
-  <meta name="twitter:image" content="https://yourdomain.com/og-pomodoro.jpg" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Pomodoro Timer: Focus, Break, Track" />
+    <meta name="twitter:description" content="Free Pomodoro app with stats, notifications, and keyboard shortcuts." />
+    <meta name="twitter:image" content="https://yourdomain.com/og-pomodoro.jpg" />
 
-  <!-- Structured Data (Schema.org) -->
-  <script type="application/ld+json">
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
@@ -49,9 +52,10 @@
   }
   </script>
 
-  <!-- Favicon & Icons -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍅</text></svg>">
-  <link rel="manifest" href="data:application/manifest+json,{
+    <!-- Favicon & Icons -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍅</text></svg>">
+    <link rel="manifest" href="data:application/manifest+json,{
     %22name%22:%22Pomodoro Timer%22,
     %22short_name%22:%22Pomodoro%22,
     %22start_url%22:%22.%22,
@@ -61,809 +65,831 @@
     %22icons%22:[{%22src%22:%22data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍅</text></svg>%22,%22sizes%22:%22192x192%22,%22type%22:%22image/svg+xml%22}]
   }">
 
-  <!-- Preload Critical Assets -->
-  <link rel="preload" href="data:audio/wav;base64,UklGRlACAABXQVZFZm10IBAAAAABAAEAQB8AAIA+AAACABAAZGF0YQAAAAA=" as="audio">
+    <!-- Preload Critical Assets -->
+    <link rel="preload" href="data:audio/wav;base64,UklGRlACAABXQVZFZm10IBAAAAABAAEAQB8AAIA+AAACABAAZGF0YQAAAAA="
+        as="audio">
 
-  <style>
-    :root {
-      --bg: #0a0e17;
-      --surface: #111827;
-      --card: #161d2f;
-      --glass: rgba(255, 255, 255, 0.05);
-      --border: rgba(255, 255, 255, 0.08);
-      --text: #f1f5f9;
-      --muted: #94a3b8;
-      --accent: #ff6b6b;
-      --accent-hover: #ff5252;
-      --accent-2: #06d6a0;
-      --success: #10b981;
-      --warning: #f59e0b;
-      --radius: 16px;
-      --max-width: 1000px;
-      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
+    <style>
+        :root {
+            --bg: #0a0e17;
+            --surface: #111827;
+            --card: #161d2f;
+            --glass: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.08);
+            --text: #f1f5f9;
+            --muted: #94a3b8;
+            --accent: #ff6b6b;
+            --accent-hover: #ff5252;
+            --accent-2: #06d6a0;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --radius: 16px;
+            --max-width: 1000px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    html, body {
-      height: 100%;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: linear-gradient(135deg, #0a0e17 0%, #1a1f2e 100%);
-      color: var(--text);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
+        html,
+        body {
+            height: 100%;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0a0e17 0%, #1a1f2e 100%);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
 
-    body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1rem;
-      overflow-x: hidden;
-    }
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            overflow-x: hidden;
+        }
 
-    .container {
-      width: 100%;
-      max-width: var(--max-width);
-      background: var(--glass);
-      backdrop-filter: blur(12px);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      box-shadow: 
-        0 20px 40px rgba(0, 0, 0, 0.3),
-        0 0 0 1px var(--border);
-      display: grid;
-      grid-template-columns: 1fr 380px;
-      gap: 1.5rem;
-      align-items: start;
-    }
+        .container {
+            width: 100%;
+            max-width: var(--max-width);
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            box-shadow:
+                0 20px 40px rgba(0, 0, 0, 0.3),
+                0 0 0 1px var(--border);
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 1.5rem;
+            align-items: start;
+        }
 
-    /* Main Timer Area */
-    .main {
-      padding: 1.5rem;
-      background: var(--glass);
-      border-radius: var(--radius);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1.25rem;
-      backdrop-filter: blur(8px);
-    }
+        /* Main Timer Area */
+        .main {
+            padding: 1.5rem;
+            background: var(--glass);
+            border-radius: var(--radius);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.25rem;
+            backdrop-filter: blur(8px);
+        }
 
-    .title {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      width: 100%;
-    }
+        .title {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            width: 100%;
+        }
 
-    .title h1 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin: 0;
-      background: linear-gradient(90deg, var(--accent), var(--accent-2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+        .title h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0;
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-    .subtitle {
-      color: var(--muted);
-      font-size: 0.9rem;
-      margin-top: 0.25rem;
-    }
+        .subtitle {
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
 
-    .timer {
-      width: 280px;
-      height: 280px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      background: 
-        radial-gradient(120px circle at 30% 20%, rgba(255, 107, 107, 0.15), transparent),
-        linear-gradient(135deg, #0f1627 0%, #0b1220 100%);
-      box-shadow: 
-        0 10px 30px rgba(0, 0, 0, 0.5),
-        inset 0 8px 20px rgba(255, 255, 255, 0.03);
-      font-size: 3.8rem;
-      font-weight: 600;
-      color: var(--text);
-      transition: var(--transition);
-    }
+        .timer {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background:
+                radial-gradient(120px circle at 30% 20%, rgba(255, 107, 107, 0.15), transparent),
+                linear-gradient(135deg, #0f1627 0%, #0b1220 100%);
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.5),
+                inset 0 8px 20px rgba(255, 255, 255, 0.03);
+            font-size: 3.8rem;
+            font-weight: 600;
+            color: var(--text);
+            transition: var(--transition);
+        }
 
-    .timer.active {
-      animation: pulse 2s infinite;
-    }
+        .timer.active {
+            animation: pulse 2s infinite;
+        }
 
-    @keyframes pulse {
-      0%, 100% { box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3), inset 0 8px 20px rgba(255, 255, 255, 0.03); }
-      50% { box-shadow: 0 10px 40px rgba(255, 107, 107, 0.5), inset 0 8px 20px rgba(255, 255, 255, 0.05); }
-    }
+        @keyframes pulse {
 
-    .ring {
-      position: absolute;
-      inset: 0;
-      border-radius: 50%;
-      background: conic-gradient(var(--accent) var(--p, 0%), transparent 0);
-      mask: radial-gradient(circle 54% at 50% 50%, transparent 56%, black 58%);
-      opacity: 0.95;
-      pointer-events: none;
-      transition: --p 0.4s ease;
-    }
+            0%,
+            100% {
+                box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3), inset 0 8px 20px rgba(255, 255, 255, 0.03);
+            }
 
-    .message {
-      font-size: 1rem;
-      color: var(--muted);
-      text-align: center;
-      min-height: 1.5em;
-    }
+            50% {
+                box-shadow: 0 10px 40px rgba(255, 107, 107, 0.5), inset 0 8px 20px rgba(255, 255, 255, 0.05);
+            }
+        }
 
-    .controls {
-      display: flex;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+        .ring {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: conic-gradient(var(--accent) var(--p, 0%), transparent 0);
+            mask: radial-gradient(circle 54% at 50% 50%, transparent 56%, black 58%);
+            opacity: 0.95;
+            pointer-events: none;
+            transition: --p 0.4s ease;
+        }
 
-    .btn {
-      background: white;
-      color: #0f172a;
-      border: none;
-      padding: 0.75rem 1.25rem;
-      border-radius: 12px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      cursor: pointer;
-      transition: var(--transition);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
+        .message {
+            font-size: 1rem;
+            color: var(--muted);
+            text-align: center;
+            min-height: 1.5em;
+        }
 
-    .btn:hover:not(:disabled) {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    }
+        .controls {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
 
-    .btn:active {
-      transform: translateY(0);
-    }
+        .btn {
+            background: white;
+            color: #0f172a;
+            border: none;
+            padding: 0.75rem 1.25rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
 
-    .btn.ghost {
-      background: transparent;
-      border: 1.5px solid var(--border);
-      color: var(--muted);
-    }
+        .btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
 
-    .btn.ghost:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
+        .btn:active {
+            transform: translateY(0);
+        }
 
-    .btn:disabled {
-      opacity: 0.4;
-      cursor: not-allowed;
-      transform: none !important;
-    }
+        .btn.ghost {
+            background: transparent;
+            border: 1.5px solid var(--border);
+            color: var(--muted);
+        }
 
-    .small-actions {
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
+        .btn.ghost:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
 
-    .progress-indicators {
-      display: flex;
-      gap: 0.5rem;
-      justify-content: center;
-      margin-top: 0.75rem;
-    }
+        .btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none !important;
+        }
 
-    .prog {
-      width: 42px;
-      height: 42px;
-      border-radius: 10px;
-      background: var(--glass);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: var(--transition);
-    }
+        .small-actions {
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
 
-    .prog.completed {
-      background: var(--accent);
-    }
+        .progress-indicators {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-top: 0.75rem;
+        }
 
-    /* Sidebar */
-    .sidebar {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
+        .prog {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            background: var(--glass);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
 
-    .card {
-      background: var(--glass);
-      padding: 1rem;
-      border-radius: var(--radius);
-      backdrop-filter: blur(8px);
-      border: 1px solid var(--border);
-    }
+        .prog.completed {
+            background: var(--accent);
+        }
 
-    label {
-      display: block;
-      font-size: 0.875rem;
-      color: var(--muted);
-      margin-bottom: 0.35rem;
-    }
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
 
-    input[type="number"] {
-      width: 100%;
-      padding: 0.65rem;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      background: rgba(255, 255, 255, 0.05);
-      color: var(--text);
-      font-size: 1rem;
-      transition: var(--transition);
-    }
+        .card {
+            background: var(--glass);
+            padding: 1rem;
+            border-radius: var(--radius);
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--border);
+        }
 
-    input[type="number"]:focus {
-      outline: none;
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2);
-    }
+        label {
+            display: block;
+            font-size: 0.875rem;
+            color: var(--muted);
+            margin-bottom: 0.35rem;
+        }
 
-    .stat-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.75rem;
-      margin-top: 0.5rem;
-    }
+        input[type="number"] {
+            width: 100%;
+            padding: 0.65rem;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
 
-    .stat {
-      background: rgba(255, 255, 255, 0.03);
-      padding: 0.75rem;
-      border-radius: 10px;
-      text-align: center;
-    }
+        input[type="number"]:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2);
+        }
 
-    .stat .num {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--accent-2);
-    }
+        .stat-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+            margin-top: 0.5rem;
+        }
 
-    /* Modal */
-    .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.75);
-      backdrop-filter: blur(8px);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
-      padding: 1rem;
-    }
+        .stat {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 0.75rem;
+            border-radius: 10px;
+            text-align: center;
+        }
 
-    .modal {
-      background: white;
-      color: #0f172a;
-      padding: 1.5rem;
-      border-radius: 16px;
-      max-width: 420px;
-      width: 100%;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-      animation: modalPop 0.3s ease;
-    }
+        .stat .num {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent-2);
+        }
 
-    @keyframes modalPop {
-      from { transform: scale(0.9); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
+        /* Modal */
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(8px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 1rem;
+        }
 
-    .modal h3 {
-      margin: 0 0 0.5rem;
-      font-size: 1.3rem;
-    }
+        .modal {
+            background: white;
+            color: #0f172a;
+            padding: 1.5rem;
+            border-radius: 16px;
+            max-width: 420px;
+            width: 100%;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            animation: modalPop 0.3s ease;
+        }
 
-    .modal p {
-      color: #475569;
-      margin-bottom: 1rem;
-    }
+        @keyframes modalPop {
+            from {
+                transform: scale(0.9);
+                opacity: 0;
+            }
 
-    footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: var(--muted);
-      font-size: 0.8rem;
-      margin-top: 1rem;
-    }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
 
-    /* Responsive */
-    @media (max-width: 968px) {
-      .container {
-        grid-template-columns: 1fr;
-        padding: 1.25rem;
-      }
-      .timer {
-        width: 240px;
-        height: 240px;
-        font-size: 3.2rem;
-      }
-    }
+        .modal h3 {
+            margin: 0 0 0.5rem;
+            font-size: 1.3rem;
+        }
 
-    @media (max-width: 640px) {
-      .timer {
-        width: 200px;
-        height: 200px;
-        font-size: 2.8rem;
-      }
-      .controls {
-        flex-direction: column;
-        align-items: center;
-      }
-      .btn {
-        width: 100%;
-        max-width: 220px;
-      }
-    }
+        .modal p {
+            color: #475569;
+            margin-bottom: 1rem;
+        }
 
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0,0,0,0);
-      white-space: nowrap;
-      border: 0;
-    }
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--muted);
+            font-size: 0.8rem;
+            margin-top: 1rem;
+        }
 
-    kbd {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 0.2em 0.4em;
-      border-radius: 4px;
-      font-size: 0.8em;
-      font-family: inherit;
-    }
-  </style>
+        /* Responsive */
+        @media (max-width: 968px) {
+            .container {
+                grid-template-columns: 1fr;
+                padding: 1.25rem;
+            }
+
+            .timer {
+                width: 240px;
+                height: 240px;
+                font-size: 3.2rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .timer {
+                width: 200px;
+                height: 200px;
+                font-size: 2.8rem;
+            }
+
+            .controls {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 220px;
+            }
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        kbd {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.2em 0.4em;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-family: inherit;
+        }
+    </style>
 </head>
+
 <body>
-  <div class="container" role="application" aria-label="Pomodoro Timer App">
-    <main class="main" id="appMain">
-      <div class="title">
-        <div>
-          <h1>Pomodoro Timer</h1>
-          <div class="subtitle">Focus sessions • Smart breaks • Track progress</div>
-        </div>
-      </div>
+    <div class="container" role="application" aria-label="Pomodoro Timer App">
+        <main class="main" id="appMain">
+            <div class="title">
+                <div>
+                    <h1>Pomodoro Timer</h1>
+                    <div class="subtitle">Focus sessions • Smart breaks • Track progress</div>
+                </div>
+            </div>
 
-      <div class="timer" id="timer" aria-live="polite" aria-atomic="true" role="timer">
-        <div class="ring" id="ring" style="--p:0%"></div>
-        <div id="timeDisplay">25:00</div>
-      </div>
+            <div class="timer" id="timer" aria-live="polite" aria-atomic="true" role="timer">
+                <div class="ring" id="ring" style="--p:0%"></div>
+                <div id="timeDisplay">25:00</div>
+            </div>
 
-      <div class="message" id="message">Ready to focus — press <strong>Start</strong> or hit <kbd>Space</kbd>.</div>
+            <div class="message" id="message">Ready to focus — press <strong>Start</strong> or hit <kbd>Space</kbd>.
+            </div>
 
-      <div class="controls" role="toolbar" aria-label="Timer controls">
-        <button id="startBtn" class="btn" aria-label="Start timer">Start</button>
-        <button id="pauseBtn" class="btn ghost" aria-label="Pause timer" disabled>Pause</button>
-        <button id="skipBtn" class="btn ghost" aria-label="Skip current period" disabled>Skip</button>
-        <button id="resetBtn" class="btn ghost" aria-label="Reset session">Reset</button>
-      </div>
+            <div class="controls" role="toolbar" aria-label="Timer controls">
+                <button id="startBtn" class="btn" aria-label="Start timer">Start</button>
+                <button id="pauseBtn" class="btn ghost" aria-label="Pause timer" disabled>Pause</button>
+                <button id="skipBtn" class="btn ghost" aria-label="Skip current period" disabled>Skip</button>
+                <button id="resetBtn" class="btn ghost" aria-label="Reset session">Reset</button>
+            </div>
 
-      <div class="small-actions">
-        <div class="muted">Shortcuts: <kbd>Space</kbd> Start/Pause • <kbd>S</kbd> Skip • <kbd>R</kbd> Reset</div>
-      </div>
+            <div class="small-actions">
+                <div class="muted">Shortcuts: <kbd>Space</kbd> Start/Pause • <kbd>S</kbd> Skip • <kbd>R</kbd> Reset
+                </div>
+            </div>
 
-      <div class="progress-indicators" id="progress"></div>
+            <div class="progress-indicators" id="progress"></div>
 
-      <div style="width:100%; text-align:center; margin-top:1rem;">
-        <button id="settingsBtn" class="btn ghost" aria-haspopup="true" aria-controls="settingsDialog">
-          Settings
-        </button>
-      </div>
+            <div style="width:100%; text-align:center; margin-top:1rem;">
+                <button id="settingsBtn" class="btn ghost" aria-haspopup="true" aria-controls="settingsDialog">
+                    Settings
+                </button>
+            </div>
 
-      <footer>
-        <div>By <strong>Tahrik Studio</strong></div>
-        <div class="muted">v2.0</div>
-      </footer>
-    </main>
+            <footer>
+                <div>By <strong>Tahrik Studio</strong></div>
+                <div class="muted">v2.0</div>
+            </footer>
+        </main>
 
-    <aside class="sidebar" aria-label="Settings and Statistics">
-      <div class="card" id="settingsDialog" role="region" aria-label="Timer Settings">
-        <label for="workInput">Work Duration (minutes)</label>
-        <input type="number" id="workInput" min="1" max="180" value="25" />
+        <aside class="sidebar" aria-label="Settings and Statistics">
+            <div class="card" id="settingsDialog" role="region" aria-label="Timer Settings">
+                <label for="workInput">Work Duration (minutes)</label>
+                <input type="number" id="workInput" min="1" max="180" value="25" />
 
-        <label for="shortInput" style="margin-top:0.75rem">Short Break (minutes)</label>
-        <input type="number" id="shortInput" min="1" max="60" value="5" />
+                <label for="shortInput" style="margin-top:0.75rem">Short Break (minutes)</label>
+                <input type="number" id="shortInput" min="1" max="60" value="5" />
 
-        <label for="longInput" style="margin-top:0.75rem">Long Break (minutes)</label>
-        <input type="number" id="longInput" min="5" max="120" value="15" />
+                <label for="longInput" style="margin-top:0.75rem">Long Break (minutes)</label>
+                <input type="number" id="longInput" min="5" max="120" value="15" />
 
-        <label for="cyclesInput" style="margin-top:0.75rem">Cycles Before Long Break</label>
-        <input type="number" id="cyclesInput" min="2" max="8" value="4" />
+                <label for="cyclesInput" style="margin-top:0.75rem">Cycles Before Long Break</label>
+                <input type="number" id="cyclesInput" min="2" max="8" value="4" />
 
-        <div style="display:flex; gap:0.75rem; margin-top:1rem; flex-wrap:wrap;">
-          <button id="saveSettings" class="btn">Save Settings</button>
-          <button id="notifyToggle" class="btn ghost">Enable Notifications</button>
-        </div>
-      </div>
+                <div style="display:flex; gap:0.75rem; margin-top:1rem; flex-wrap:wrap;">
+                    <button id="saveSettings" class="btn">Save Settings</button>
+                    <button id="notifyToggle" class="btn ghost">Enable Notifications</button>
+                </div>
+            </div>
 
-      <div class="card">
-        <div class="muted">Today's Focus</div>
-        <div class="stat-grid">
-          <div class="stat">
-            <div class="num" id="todayNum">00:00:00</div>
-            <div class="muted">Focus Time</div>
-          </div>
-          <div class="stat">
-            <div class="num" id="allNum">00:00:00</div>
-            <div class="muted">All Time</div>
-          </div>
-        </div>
-      </div>
+            <div class="card">
+                <div class="muted">Today's Focus</div>
+                <div class="stat-grid">
+                    <div class="stat">
+                        <div class="num" id="todayNum">00:00:00</div>
+                        <div class="muted">Focus Time</div>
+                    </div>
+                    <div class="stat">
+                        <div class="num" id="allNum">00:00:00</div>
+                        <div class="muted">All Time</div>
+                    </div>
+                </div>
+            </div>
 
-      <div class="card">
-        <div class="muted">Current Session</div>
-        <div style="display:flex; gap:1rem; margin-top:0.75rem;">
-          <div style="flex:1">
-            <div class="muted">State</div>
-            <div id="stateLabel" style="font-weight:600; color:var(--accent-2)">WORK</div>
-          </div>
-          <div style="flex:1">
-            <div class="muted">Pomodoros</div>
-            <div id="countLabel" style="font-weight:600">0</div>
-          </div>
-        </div>
-      </div>
-    </aside>
-  </div>
-
-  <!-- Completion Modal -->
-  <div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modalTitle">
-    <div class="modal" role="document">
-      <h3 id="modalTitle">Cycle Complete!</h3>
-      <p id="modalDesc">You've completed a full set of focus sessions. Take a well-deserved long break!</p>
-      <div style="display:flex; justify-content:flex-end; gap:0.75rem; margin-top:1.5rem;">
-        <button id="modalOk" class="btn">Continue to Work</button>
-      </div>
+            <div class="card">
+                <div class="muted">Current Session</div>
+                <div style="display:flex; gap:1rem; margin-top:0.75rem;">
+                    <div style="flex:1">
+                        <div class="muted">State</div>
+                        <div id="stateLabel" style="font-weight:600; color:var(--accent-2)">WORK</div>
+                    </div>
+                    <div style="flex:1">
+                        <div class="muted">Pomodoros</div>
+                        <div id="countLabel" style="font-weight:600">0</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
     </div>
-  </div>
 
-  <audio id="ding" preload="auto">
-    <source src="data:audio/wav;base64,UklGRlACAABXQVZFZm10IBAAAAABAAEAQB8AAIA+AAACABAAZGF0YQAAAAA=" type="audio/wav">
-  </audio>
+    <!-- Completion Modal -->
+    <div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true" aria-hidden="true"
+        aria-labelledby="modalTitle">
+        <div class="modal" role="document">
+            <h3 id="modalTitle">Cycle Complete!</h3>
+            <p id="modalDesc">You've completed a full set of focus sessions. Take a well-deserved long break!</p>
+            <div style="display:flex; justify-content:flex-end; gap:0.75rem; margin-top:1.5rem;">
+                <button id="modalOk" class="btn">Continue to Work</button>
+            </div>
+        </div>
+    </div>
 
-  <script>
-    /**************************************************************************
-     * Professional Pomodoro Timer v2.0
-     * Features: Accurate timing, persistence, notifications, accessibility
-     **************************************************************************/
-    (function () {
-      const STORAGE = {
-        SETTINGS: 'pomodoro_settings_v2',
-        STATE: 'pomodoro_state_v2',
-        TODAY_PREFIX: 'pomodoro_today_',
-        ALLTIME: 'pomodoro_alltime_v2'
+    <audio id="ding" preload="auto">
+        <source src="data:audio/wav;base64,UklGRlACAABXQVZFZm10IBAAAAABAAEAQB8AAIA+AAACABAAZGF0YQAAAAA="
+            type="audio/wav">
+    </audio>
+
+<script>
+  /**************************************************************************
+   * Pomodoro Timer v2.1 — PAUSE FIXED + RESUME PRESERVES TIME
+   **************************************************************************/
+  (function () {
+    const STORAGE = {
+      SETTINGS: 'pomodoro_settings_v2',
+      STATE: 'pomodoro_state_v2',
+      TODAY_PREFIX: 'pomodoro_today_',
+      ALLTIME: 'pomodoro_alltime_v2'
+    };
+
+    const DEFAULTS = { workMin: 25, shortMin: 5, longMin: 15, cyclesBeforeLong: 4 };
+    const STATES = { WORK: 'WORK', SHORT_BREAK: 'SHORT_BREAK', LONG_BREAK: 'LONG_BREAK' };
+
+    const els = {
+      timeDisplay: document.getElementById('timeDisplay'),
+      ring: document.getElementById('ring'),
+      startBtn: document.getElementById('startBtn'),
+      pauseBtn: document.getElementById('pauseBtn'),
+      skipBtn: document.getElementById('skipBtn'),
+      resetBtn: document.getElementById('resetBtn'),
+      message: document.getElementById('message'),
+      progress: document.getElementById('progress'),
+      todayNum: document.getElementById('todayNum'),
+      allNum: document.getElementById('allNum'),
+      stateLabel: document.getElementById('stateLabel'),
+      countLabel: document.getElementById('countLabel'),
+      workInput: document.getElementById('workInput'),
+      shortInput: document.getElementById('shortInput'),
+      longInput: document.getElementById('longInput'),
+      cyclesInput: document.getElementById('cyclesInput'),
+      saveSettings: document.getElementById('saveSettings'),
+      notifyToggle: document.getElementById('notifyToggle'),
+      settingsBtn: document.getElementById('settingsBtn'),
+      modalBackdrop: document.getElementById('modalBackdrop'),
+      modalOk: document.getElementById('modalOk'),
+      ding: document.getElementById('ding'),
+      timer: document.getElementById('timer')
+    };
+
+    let settings = loadSettings();
+    let state = loadState() || { mode: STATES.WORK, endTs: null, running: false, startedAt: null, pomodoroCount: 0 };
+    let tickInterval = null;
+
+    function loadSettings() {
+      try { return { ...DEFAULTS, ...JSON.parse(localStorage.getItem(STORAGE.SETTINGS) || '{}') }; }
+      catch { return { ...DEFAULTS }; }
+    }
+
+    function saveSettings() { localStorage.setItem(STORAGE.SETTINGS, JSON.stringify(settings)); }
+    function loadState() { try { return JSON.parse(localStorage.getItem(STORAGE.STATE) || 'null'); } catch { return null; } }
+    function saveState() { localStorage.setItem(STORAGE.STATE, JSON.stringify(state)); }
+
+    function getDuration(mode) {
+      return mode === STATES.WORK ? settings.workMin * 60 :
+             mode === STATES.SHORT_BREAK ? settings.shortMin * 60 :
+             settings.longMin * 60;
+    }
+
+    function render() {
+      els.stateLabel.textContent = state.mode.replace('_', ' ');
+      els.countLabel.textContent = state.pomodoroCount;
+
+      const remaining = state.running && state.endTs ? Math.max(0, Math.round((state.endTs - Date.now()) / 1000)) : getDuration(state.mode);
+      setTimeDisplay(remaining);
+
+      const total = getDuration(state.mode);
+      const percent = total > 0 ? Math.min(100, (1 - remaining / total) * 100) : 0;
+      els.ring.style.setProperty('--p', percent + '%');
+
+      els.startBtn.disabled = state.running;
+      els.pauseBtn.disabled = !state.running;
+      els.skipBtn.disabled = !state.running;
+
+      // Smart button label
+      els.startBtn.textContent = state.running ? 'Start' : (state.endTs ? 'Resume' : 'Start');
+
+      updateProgressVisual();
+    }
+
+    function setTimeDisplay(sec) {
+      const h = Math.floor(sec / 3600);
+      const m = Math.floor((sec % 3600) / 60);
+      const s = sec % 60;
+      els.timeDisplay.textContent = `${h > 0 ? h + ':' : ''}${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+      document.title = els.timeDisplay.textContent + ' — Pomodoro Timer';
+    }
+
+    function startTimer() {
+      if (state.running) return;
+
+      if (!state.endTs) {
+        const duration = getDuration(state.mode);
+        state.endTs = Date.now() + duration * 1000;
+      }
+
+      state.startedAt = Date.now();
+      state.running = true;
+      saveState();
+      scheduleTick();
+      showMessageForMode();
+      els.timer.classList.add('active');
+      render();
+    }
+
+    function pauseTimer() {
+      if (!state.running) return;
+      state.running = false;
+      saveState();
+      stopTick();
+      els.timer.classList.remove('active');
+      els.message.textContent = 'Paused — press Space to resume';
+      render();
+    }
+
+    function skipPeriod() {
+      if (!confirm('Skip current period?')) return;
+      stopTick();
+      if (state.mode === STATES.WORK) {
+        state.pomodoroCount = (state.pomodoroCount + 1) % settings.cyclesBeforeLong;
+        addFocusSeconds(settings.workMin * 60);
+        state.mode = state.pomodoroCount === 0 ? STATES.LONG_BREAK : STATES.SHORT_BREAK;
+        if (state.pomodoroCount === 0) showModal('Cycle Complete!', 'Great job! Take a longer break.');
+      } else {
+        state.mode = STATES.WORK;
+      }
+      state.running = false;
+      state.endTs = null;
+      saveState();
+      render();
+    }
+
+    function resetSession() {
+      if (!confirm('Reset session and counts?')) return;
+      state = { mode: STATES.WORK, endTs: null, running: false, startedAt: null, pomodoroCount: 0 };
+      saveState();
+      stopTick();
+      showMessage('Ready to focus — press Start or Space.');
+      els.timer.classList.remove('active');
+      render();
+    }
+
+    function completePeriod() {
+      playSound();
+      if (state.mode === STATES.WORK) {
+        state.pomodoroCount = (state.pomodoroCount + 1) % settings.cyclesBeforeLong;
+        addFocusSeconds(settings.workMin * 60);
+        state.mode = state.pomodoroCount === 0 ? STATES.LONG_BREAK : STATES.SHORT_BREAK;
+        if (state.pomodoroCount === 0) showModal('Cycle Complete!', 'You earned a long break!');
+        notify('Focus session complete!');
+      } else {
+        state.mode = STATES.WORK;
+        notify('Break over — time to focus!');
+      }
+      state.running = false;
+      state.endTs = null;
+      saveState();
+      render();
+      els.timer.classList.remove('active');
+    }
+
+    function scheduleTick() {
+      stopTick();
+      tickInterval = setInterval(tick, 500);
+    }
+
+    function stopTick() {
+      if (tickInterval) clearInterval(tickInterval);
+    }
+
+    function tick() {
+      if (!state.running || !state.endTs) return;
+      const remaining = state.endTs - Date.now();
+      if (remaining <= 0) {
+        setTimeDisplay(0);
+        completePeriod();
+      } else {
+        setTimeDisplay(Math.ceil(remaining / 1000));
+        const pct = (1 - (remaining / 1000) / getDuration(state.mode)) * 100;
+        els.ring.style.setProperty('--p', Math.min(100, pct) + '%');
+      }
+    }
+
+    function showMessage(text) { els.message.textContent = text; }
+    function showMessageForMode() {
+      const msg = state.mode === STATES.WORK ? 'Stay focused!' :
+                  state.mode === STATES.SHORT_BREAK ? 'Short break — relax' :
+                  'Long break — recharge fully';
+      showMessage(msg);
+    }
+
+    function playSound() { try { els.ding.currentTime = 0; els.ding.play(); } catch(e) {} }
+    function notify(text) { if (Notification?.permission === 'granted') new Notification(text, { silent: true }); }
+
+    function showModal(title, desc) {
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('modalDesc').textContent = desc;
+      els.modalBackdrop.style.display = 'flex';
+      els.modalBackdrop.setAttribute('aria-hidden', 'false');
+      const first = els.modalOk;
+      first.focus();
+      const handler = e => {
+        if (e.key === 'Escape') closeModal();
       };
+      document.addEventListener('keydown', handler);
+      els.modalBackdrop._handler = handler;
+    }
 
-      const DEFAULTS = { workMin: 25, shortMin: 5, longMin: 15, cyclesBeforeLong: 4 };
-      const STATES = { WORK: 'WORK', SHORT_BREAK: 'SHORT_BREAK', LONG_BREAK: 'LONG_BREAK' };
+    function closeModal() {
+      els.modalBackdrop.style.display = 'none';
+      els.modalBackdrop.setAttribute('aria-hidden', 'true');
+      document.removeEventListener('keydown', els.modalBackdrop._handler);
+      state.mode = STATES.WORK;
+      saveState();
+      render();
+    }
 
-      // Elements
-      const els = {
-        timeDisplay: document.getElementById('timeDisplay'),
-        ring: document.getElementById('ring'),
-        startBtn: document.getElementById('startBtn'),
-        pauseBtn: document.getElementById('pauseBtn'),
-        skipBtn: document.getElementById('skipBtn'),
-        resetBtn: document.getElementById('resetBtn'),
-        message: document.getElementById('message'),
-        progress: document.getElementById('progress'),
-        todayNum: document.getElementById('todayNum'),
-        allNum: document.getElementById('allNum'),
-        stateLabel: document.getElementById('stateLabel'),
-        countLabel: document.getElementById('countLabel'),
-        workInput: document.getElementById('workInput'),
-        shortInput: document.getElementById('shortInput'),
-        longInput: document.getElementById('longInput'),
-        cyclesInput: document.getElementById('cyclesInput'),
-        saveSettings: document.getElementById('saveSettings'),
-        notifyToggle: document.getElementById('notifyToggle'),
-        settingsBtn: document.getElementById('settingsBtn'),
-        modalBackdrop: document.getElementById('modalBackdrop'),
-        modalOk: document.getElementById('modalOk'),
-        ding: document.getElementById('ding'),
-        timer: document.getElementById('timer')
+    function buildProgress(n) {
+      els.progress.innerHTML = '';
+      for (let i = 0; i < n; i++) {
+        const div = document.createElement('div');
+        div.className = 'prog';
+        div.innerHTML = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-opacity="0.15"/>
+          <path d="M6 12l3 3 9-9" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="opacity:0; transition:opacity 0.3s"/>
+        </svg>`;
+        els.progress.appendChild(div);
+      }
+    }
+
+    function updateProgressVisual() {
+      Array.from(els.progress.children).forEach((el, i) => {
+        const path = el.querySelector('path');
+        if (i < state.pomodoroCount) {
+          el.classList.add('completed');
+          path.style.opacity = '1';
+        } else {
+          el.classList.remove('completed');
+          path.style.opacity = '0';
+        }
+      });
+    }
+
+    function addFocusSeconds(sec) {
+      const today = new Date().toDateString();
+      const key = STORAGE.TODAY_PREFIX + today;
+      const prev = Number(localStorage.getItem(key) || 0);
+      localStorage.setItem(key, String(prev + sec));
+      const all = Number(localStorage.getItem(STORAGE.ALLTIME) || 0);
+      localStorage.setItem(STORAGE.ALLTIME, String(all + sec));
+      renderStats();
+    }
+
+    function renderStats() {
+      const today = Number(localStorage.getItem(STORAGE.TODAY_PREFIX + new Date().toDateString()) || 0);
+      const all = Number(localStorage.getItem(STORAGE.ALLTIME) || 0);
+      els.todayNum.textContent = formatHMS(today);
+      els.allNum.textContent = formatHMS(all);
+    }
+
+    function formatHMS(sec) {
+      const h = Math.floor(sec / 3600);
+      const m = Math.floor((sec % 3600) / 60);
+      const s = sec % 60;
+      return `${h > 0 ? h + ':' : ''}${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+    }
+
+    els.startBtn.onclick = startTimer;
+    els.pauseBtn.onclick = pauseTimer;
+    els.skipBtn.onclick = skipPeriod;
+    els.resetBtn.onclick = resetSession;
+    els.modalOk.onclick = closeModal;
+
+    els.saveSettings.onclick = () => {
+      settings = {
+        workMin: Math.max(1, +els.workInput.value || 25),
+        shortMin: Math.max(1, +els.shortInput.value || 5),
+        longMin: Math.max(5, +els.longInput.value || 15),
+        cyclesBeforeLong: Math.max(2, +els.cyclesInput.value || 4)
       };
+      saveSettings();
+      buildProgress(settings.cyclesBeforeLong);
+      state.pomodoroCount %= settings.cyclesBeforeLong;
+      saveState();
+      els.message.textContent = 'Settings saved!';
+      render();
+    };
 
-      let settings = loadSettings();
-      let state = loadState() || { mode: STATES.WORK, endTs: null, running: false, startedAt: null, pomodoroCount: 0 };
-      let tickInterval = null;
+    els.notifyToggle.onclick = () => {
+      if (!('Notification' in window)) return alert('Notifications not supported');
+      Notification.requestPermission().then(p => alert(p === 'granted' ? 'Notifications enabled!' : 'Permission denied'));
+    };
 
-      // Init inputs
-      Object.keys(DEFAULTS).forEach(k => els[k.replace('Min', 'Input')] && (els[k.replace('Min', 'Input')].value = settings[k]));
+    document.addEventListener('keydown', e => {
+      if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+      if (e.code === 'Space') { e.preventDefault(); state.running ? pauseTimer() : startTimer(); }
+      else if (e.key.toLowerCase() === 's') { e.preventDefault(); skipPeriod(); }
+      else if (e.key.toLowerCase() === 'r') { e.preventDefault(); resetSession(); }
+    });
 
-      function loadSettings() {
-        try { return { ...DEFAULTS, ...JSON.parse(localStorage.getItem(STORAGE.SETTINGS) || '{}') }; }
-        catch { return { ...DEFAULTS }; }
-      }
+    buildProgress(settings.cyclesBeforeLong);
+    render();
+    renderStats();
+    setInterval(saveState, 2000);
 
-      function saveSettings() { localStorage.setItem(STORAGE.SETTINGS, JSON.stringify(settings)); }
-      function loadState() { try { return JSON.parse(localStorage.getItem(STORAGE.STATE) || 'null'); } catch { return null; } }
-      function saveState() { localStorage.setItem(STORAGE.STATE, JSON.stringify(state)); }
-
-      function getDuration(mode) {
-        return mode === STATES.WORK ? settings.workMin * 60 :
-               mode === STATES.SHORT_BREAK ? settings.shortMin * 60 :
-               settings.longMin * 60;
-      }
-
-      function render() {
-        els.stateLabel.textContent = state.mode.replace('_', ' ');
-        els.countLabel.textContent = state.pomodoroCount;
-
-        const remaining = state.running && state.endTs ? Math.max(0, Math.round((state.endTs - Date.now()) / 1000)) : getDuration(state.mode);
-        setTimeDisplay(remaining);
-
-        const total = getDuration(state.mode);
-        const percent = total > 0 ? Math.min(100, (1 - remaining / total) * 100) : 0;
-        els.ring.style.setProperty('--p', percent + '%');
-
-        els.startBtn.disabled = state.running;
-        els.pauseBtn.disabled = !state.running;
-        els.skipBtn.disabled = !state.running;
-
-        updateProgressVisual();
-      }
-
-      function setTimeDisplay(sec) {
-        const h = Math.floor(sec / 3600);
-        const m = Math.floor((sec % 3600) / 60);
-        const s = sec % 60;
-        els.timeDisplay.textContent = `${h > 0 ? h + ':' : ''}${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
-        document.title = els.timeDisplay.textContent + ' — Pomodoro Timer';
-      }
-
-      function startTimer() {
-        if (state.running) return;
-        state.endTs = Date.now() + (state.pausedRemaining || getDuration(state.mode)) * 1000;
-        state.startedAt = Date.now();
-        state.running = true;
-        state.pausedRemaining = null;
-        saveState();
+    window.addEventListener('load', () => {
+      if (state.running && state.endTs > Date.now()) {
         scheduleTick();
         showMessageForMode();
         els.timer.classList.add('active');
-        render();
+      } else if (state.running) {
+        completePeriod();
       }
-
-      function pauseTimer() {
-        if (!state.running) return;
-        state.pausedRemaining = Math.ceil((state.endTs - Date.now()) / 1000);
-        state.running = false;
-        state.endTs = null;
-        saveState();
-        stopTick();
-        els.timer.classList.remove('active');
-        els.message.textContent = 'Paused — press Space to resume';
-        render();
-      }
-
-      function skipPeriod() {
-        if (confirm('Skip current period?')) {
-          stopTick();
-          if (state.mode === STATES.WORK) {
-            state.pomodoroCount = (state.pomodoroCount + 1) % settings.cyclesBeforeLong;
-            addFocusSeconds(settings.workMin * 60);
-            state.mode = state.pomodoroCount === 0 ? STATES.LONG_BREAK : STATES.SHORT_BREAK;
-            if (state.pomodoroCount === 0) showModal('Cycle Complete!', 'Great job! Take a longer break.');
-          } else {
-            state.mode = STATES.WORK;
-          }
-          state.running = false;
-          saveState();
-          render();
-        }
-      }
-
-      function resetSession() {
-        if (confirm('Reset session and counts?')) {
-          state = { mode: STATES.WORK, endTs: null, running: false, startedAt: null, pomodoroCount: 0 };
-          saveState();
-          stopTick();
-          showMessage('Ready to focus — press Start or Space.');
-          els.timer.classList.remove('active');
-          render();
-        }
-      }
-
-      function completePeriod() {
-        playSound();
-        if (state.mode === STATES.WORK) {
-          state.pomodoroCount = (state.pomodoroCount + 1) % settings.cyclesBeforeLong;
-          addFocusSeconds(settings.workMin * 60);
-          state.mode = state.pomodoroCount === 0 ? STATES.LONG_BREAK : STATES.SHORT_BREAK;
-          if (state.pomodoroCount === 0) showModal('Cycle Complete!', 'You earned a long break!');
-          notify('Focus session complete!');
-        } else {
-          state.mode = STATES.WORK;
-          notify('Break over — time to focus!');
-        }
-        state.running = false;
-        saveState();
-        render();
-        els.timer.classList.remove('active');
-      }
-
-      function scheduleTick() {
-        stopTick();
-        tickInterval = setInterval(tick, 500);
-      }
-
-      function stopTick() {
-        if (tickInterval) clearInterval(tickInterval);
-      }
-
-      function tick() {
-        if (!state.running || !state.endTs) return;
-        const remaining = state.endTs - Date.now();
-        if (remaining <= 0) {
-          setTimeDisplay(0);
-          completePeriod();
-        } else {
-          setTimeDisplay(Math.ceil(remaining / 1000));
-          const pct = (1 - (remaining / 1000) / getDuration(state.mode)) * 100;
-          els.ring.style.setProperty('--p', Math.min(100, pct) + '%');
-        }
-      }
-
-      function showMessage(text) { els.message.textContent = text; }
-      function showMessageForMode() {
-        const msg = state.mode === STATES.WORK ? 'Stay focused!' :
-                    state.mode === STATES.SHORT_BREAK ? 'Short break — relax' :
-                    'Long break — recharge fully';
-        showMessage(msg);
-      }
-
-      function playSound() { try { els.ding.currentTime = 0; els.ding.play(); } catch(e) {} }
-      function notify(text) { if (Notification?.permission === 'granted') new Notification(text, { silent: true }); }
-
-      function showModal(title, desc) {
-        document.getElementById('modalTitle').textContent = title;
-        document.getElementById('modalDesc').textContent = desc;
-        els.modalBackdrop.style.display = 'flex';
-        els.modalBackdrop.setAttribute('aria-hidden', 'false');
-        const first = els.modalOk;
-        first.focus();
-        const handler = e => {
-          if (e.key === 'Escape') closeModal();
-          if (e.key === 'Tab' && e.shiftKey && document.activeElement === first) { e.preventDefault(); first.focus(); }
-        };
-        document.addEventListener('keydown', handler);
-        els.modalBackdrop._handler = handler;
-      }
-
-      function closeModal() {
-        els.modalBackdrop.style.display = 'none';
-        els.modalBackdrop.setAttribute('aria-hidden', 'true');
-        document.removeEventListener('keydown', els.modalBackdrop._handler);
-        state.mode = STATES.WORK;
-        saveState();
-        render();
-      }
-
-      function buildProgress(n) {
-        els.progress.innerHTML = '';
-        for (let i = 0; i < n; i++) {
-          const div = document.createElement('div');
-          div.className = 'prog';
-          div.innerHTML = `<svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-opacity="0.15"/>
-            <path d="M6 12l3 3 9-9" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="opacity:0; transition:opacity 0.3s"/>
-          </svg>`;
-          els.progress.appendChild(div);
-        }
-      }
-
-      function updateProgressVisual() {
-        Array.from(els.progress.children).forEach((el, i) => {
-          const path = el.querySelector('path');
-          if (i < state.pomodoroCount) {
-            el.classList.add('completed');
-            path.style.opacity = '1';
-          } else {
-            el.classList.remove('completed');
-            path.style.opacity = '0';
-          }
-        });
-      }
-
-      function addFocusSeconds(sec) {
-        const today = new Date().toDateString();
-        const key = STORAGE.TODAY_PREFIX + today;
-        const prev = Number(localStorage.getItem(key) || 0);
-        localStorage.setItem(key, String(prev + sec));
-        const all = Number(localStorage.getItem(STORAGE.ALLTIME) || 0);
-        localStorage.setItem(STORAGE.ALLTIME, String(all + sec));
-        renderStats();
-      }
-
-      function renderStats() {
-        const today = Number(localStorage.getItem(STORAGE.TODAY_PREFIX + new Date().toDateString()) || 0);
-        const all = Number(localStorage.getItem(STORAGE.ALLTIME) || 0);
-        els.todayNum.textContent = formatHMS(today);
-        els.allNum.textContent = formatHMS(all);
-      }
-
-      function formatHMS(sec) {
-        const h = Math.floor(sec / 3600);
-        const m = Math.floor((sec % 3600) / 60);
-        const s = sec % 60;
-        return `${h > 0 ? h + ':' : ''}${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
-      }
-
-      // Event Listeners
-      els.startBtn.onclick = startTimer;
-      els.pauseBtn.onclick = pauseTimer;
-      els.skipBtn.onclick = skipPeriod;
-      els.resetBtn.onclick = resetSession;
-      els.modalOk.onclick = closeModal;
-      els.saveSettings.onclick = () => {
-        settings = {
-          workMin: Math.max(1, +els.workInput.value || 25),
-          shortMin: Math.max(1, +els.shortInput.value || 5),
-          longMin: Math.max(5, +els.longInput.value || 15),
-          cyclesBeforeLong: Math.max(2, +els.cyclesInput.value || 4)
-        };
-        saveSettings();
-        buildProgress(settings.cyclesBeforeLong);
-        state.pomodoroCount %= settings.cyclesBeforeLong;
-        saveState();
-        showMessage('Settings saved!');
-        render();
-      };
-
-      els.notifyToggle.onclick = () => {
-        if (!('Notification' in window)) return alert('Notifications not supported');
-        Notification.requestPermission().then(p => alert(p === 'granted' ? 'Notifications enabled!' : 'Permission denied'));
-      };
-
-      document.addEventListener('keydown', e => {
-        if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
-        if (e.code === 'Space') { e.preventDefault(); state.running ? pauseTimer() : startTimer(); }
-        else if (e.key.toLowerCase() === 's') { e.preventDefault(); skipPeriod(); }
-        else if (e.key.toLowerCase() === 'r') { e.preventDefault(); resetSession(); }
-      });
-
-      // Init
-      buildProgress(settings.cyclesBeforeLong);
       render();
-      renderStats();
-      setInterval(saveState, 2000);
+    });
 
-      window.addEventListener('load', () => {
-        if (state.running && state.endTs > Date.now()) {
-          scheduleTick();
-          showMessageForMode();
-          els.timer.classList.add('active');
-        } else if (state.running) {
-          completePeriod();
-        }
-        render();
-      });
-
-      // Expose debug
-      window.__pomodoro = { state, settings, reset: () => localStorage.clear() && location.reload() };
-    })();
-  </script>
+    window.__pomodoro = { state, settings, reset: () => localStorage.clear() && location.reload() };
+  })();
+</script>
 </body>
+
 </html>
