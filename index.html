@@ -20,15 +20,12 @@
     <meta property="og:description"
         content="Stay focused with customizable Pomodoro sessions, progress tracking, and notifications. Perfect for students, developers, and remote workers." />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://yourdomain.com/pomodoro" />
-    <meta property="og:image" content="https://yourdomain.com/og-pomodoro.jpg" />
     <meta property="og:site_name" content="Tahrik Studio" />
 
     <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Pomodoro Timer: Focus, Break, Track" />
     <meta name="twitter:description" content="Free Pomodoro app with stats, notifications, and keyboard shortcuts." />
-    <meta name="twitter:image" content="https://yourdomain.com/og-pomodoro.jpg" />
 
     <!-- Structured Data (Schema.org) -->
     <script type="application/ld+json">
@@ -37,7 +34,6 @@
     "@type": "WebApplication",
     "name": "Pomodoro Timer",
     "description": "A modern, accessible Pomodoro timer with focus tracking, breaks, and notifications.",
-    "url": "https://yourdomain.com/pomodoro",
     "applicationCategory": "Productivity",
     "operatingSystem": "All",
     "offers": {
@@ -55,21 +51,29 @@
     <!-- Favicon & Icons -->
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍅</text></svg>">
-    <link rel="manifest" href="data:application/manifest+json,{
-    %22name%22:%22Pomodoro Timer%22,
-    %22short_name%22:%22Pomodoro%22,
-    %22start_url%22:%22.%22,
-    %22display%22:%22standalone%22,
-    %22background_color%22:%22#0f1724%22,
-    %22theme_color%22:%22#ff6b6b%22,
-    %22icons%22:[{%22src%22:%22data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍅</text></svg>%22,%22sizes%22:%22192x192%22,%22type%22:%22image/svg+xml%22}]
-  }">
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Fonts: non-blocking load -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    </noscript>
 
     <!-- Preload Critical Assets -->
-    <link rel="preload" href="data:audio/wav;base64,UklGRlACAABXQVZFZm10IBAAAAABAAEAQB8AAIA+AAACABAAZGF0YQAAAAA="
+    <link rel="preload"
+        href="data:audio/wav;base64,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"
         as="audio">
 
     <style>
+        @property --p {
+            syntax: '<percentage>';
+            inherits: true;
+            initial-value: 0%;
+        }
+
         :root {
             --bg: #0a0e17;
             --surface: #111827;
@@ -84,7 +88,7 @@
             --success: #10b981;
             --warning: #f59e0b;
             --radius: 16px;
-            --max-width: 1000px;
+            --max-width: 560px;
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -98,7 +102,7 @@
 
         html,
         body {
-            height: 100%;
+            min-height: 100%;
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: linear-gradient(135deg, #0a0e17 0%, #1a1f2e 100%);
             color: var(--text);
@@ -107,39 +111,120 @@
         }
 
         body {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem;
-            overflow-x: hidden;
+            overflow: hidden;
         }
 
         .container {
+            position: fixed;
+            inset: 0;
             width: 100%;
-            max-width: var(--max-width);
-            background: var(--glass);
-            backdrop-filter: blur(12px);
-            border-radius: var(--radius);
-            padding: 1.5rem;
-            box-shadow:
-                0 20px 40px rgba(0, 0, 0, 0.3),
-                0 0 0 1px var(--border);
-            display: grid;
-            grid-template-columns: 1fr 380px;
-            gap: 1.5rem;
-            align-items: start;
+            height: 100%;
+        }
+
+        /* Pager */
+        .pager-viewport {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .pager-track {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .page {
+            flex: 0 0 100%;
+            width: 100%;
+            height: 100%;
+            min-height: 0;
+            overflow-y: auto;
+            box-sizing: border-box;
+        }
+
+        .pager-arrow {
+            position: fixed;
+            right: 1.25rem;
+            z-index: 10;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1.5px solid var(--border);
+            background: rgba(17, 24, 39, 0.6);
+            backdrop-filter: blur(8px);
+            color: var(--text);
+            font-size: 1.2rem;
+            line-height: 1;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .pager-arrow:hover:not(:disabled) {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .pager-arrow:disabled {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .pager-arrow.prev {
+            top: calc(50% - 52px);
+        }
+
+        .pager-arrow.next {
+            top: calc(50% + 8px);
+        }
+
+        .pager-dots {
+            position: fixed;
+            left: 50%;
+            bottom: 1.5rem;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            z-index: 10;
+        }
+
+        .pager-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            border: none;
+            background: var(--border);
+            cursor: pointer;
+            padding: 0;
+            transition: var(--transition);
+        }
+
+        .pager-dot.active {
+            width: 22px;
+            border-radius: 4px;
+            background: var(--accent);
         }
 
         /* Main Timer Area */
         .main {
-            padding: 1.5rem;
-            background: var(--glass);
-            border-radius: var(--radius);
+            width: 100%;
+            max-width: var(--max-width);
+            min-height: 100%;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 5rem;
+            box-sizing: border-box;
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
             gap: 1.25rem;
-            backdrop-filter: blur(8px);
         }
 
         .title {
@@ -180,6 +265,7 @@
                 inset 0 8px 20px rgba(255, 255, 255, 0.03);
             font-size: 3.8rem;
             font-weight: 600;
+            font-variant-numeric: tabular-nums;
             color: var(--text);
             transition: var(--transition);
         }
@@ -203,11 +289,13 @@
         .ring {
             position: absolute;
             inset: 0;
+            z-index: 0;
             border-radius: 50%;
             background: conic-gradient(var(--accent) var(--p, 0%), transparent 0);
             mask: radial-gradient(circle 54% at 50% 50%, transparent 56%, black 58%);
             opacity: 0.95;
             pointer-events: none;
+            filter: blur(0.75px);
             transition: --p 0.4s ease;
         }
 
@@ -291,11 +379,77 @@
             background: var(--accent);
         }
 
-        /* Sidebar */
-        .sidebar {
+        /* Statistics page */
+        .stats-page {
+            align-items: stretch;
+            text-align: left;
+        }
+
+        .stats-header h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin: 0;
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-hero {
             display: flex;
-            flex-direction: column;
+            align-items: center;
             gap: 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.25rem;
+        }
+
+        .stat-hero-icon {
+            font-size: 2.25rem;
+            line-height: 1;
+        }
+
+        #timeDisplay {
+            position: relative;
+            z-index: 1;
+        }
+
+        #timeDisplay,
+        .stat-hero-num,
+        .stat-tile-num,
+        .stat .num {
+            font-variant-numeric: tabular-nums;
+        }
+
+        .stat-hero-num {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .stat-tile-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+        }
+
+        .stat-tile {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.1rem;
+            text-align: center;
+        }
+
+        .stat-tile-icon {
+            font-size: 1.5rem;
+        }
+
+        .stat-tile-num {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--accent-2);
+            margin: 0.25rem 0;
         }
 
         .card {
@@ -391,6 +545,12 @@
             font-size: 1.3rem;
         }
 
+        #settingsBackdrop .modal {
+            background: var(--card);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
         .modal p {
             color: #475569;
             margin-bottom: 1rem;
@@ -406,19 +566,6 @@
         }
 
         /* Responsive */
-        @media (max-width: 968px) {
-            .container {
-                grid-template-columns: 1fr;
-                padding: 1.25rem;
-            }
-
-            .timer {
-                width: 240px;
-                height: 240px;
-                font-size: 3.2rem;
-            }
-        }
-
         @media (max-width: 640px) {
             .timer {
                 width: 200px;
@@ -461,96 +608,107 @@
 
 <body>
     <div class="container" role="application" aria-label="Pomodoro Timer App">
-        <main class="main" id="appMain">
-            <div class="title">
-                <div>
-                    <h1>Pomodoro Timer</h1>
-                    <div class="subtitle">Focus sessions • Smart breaks • Track progress</div>
-                </div>
-            </div>
+        <div class="pager-viewport" id="pagerViewport">
+            <button class="pager-arrow prev" id="pagerPrev" aria-label="Previous page: Timer">&#8593;</button>
+            <button class="pager-arrow next" id="pagerNext" aria-label="Next page: Statistics">&#8595;</button>
 
-            <div class="timer" id="timer" aria-live="polite" aria-atomic="true" role="timer">
-                <div class="ring" id="ring" style="--p:0%"></div>
-                <div id="timeDisplay">25:00</div>
-            </div>
+            <div class="pager-track" id="pagerTrack">
+                <section class="page" id="pageTimer" aria-label="Timer">
+                    <main class="main" id="appMain">
+                        <div class="title">
+                            <div>
+                                <h1>Pomodoro Timer</h1>
+                                <div class="subtitle">Focus sessions • Smart breaks • Track progress</div>
+                            </div>
+                        </div>
 
-            <div class="message" id="message">Ready to focus — press <strong>Start</strong> or hit <kbd>Space</kbd>.
-            </div>
+                        <div class="timer" id="timer" aria-live="polite" aria-atomic="true" role="timer">
+                            <div class="ring" id="ring" style="--p:0%"></div>
+                            <div id="timeDisplay">25:00</div>
+                        </div>
 
-            <div class="controls" role="toolbar" aria-label="Timer controls">
-                <button id="startBtn" class="btn" aria-label="Start timer">Start</button>
-                <button id="pauseBtn" class="btn ghost" aria-label="Pause timer" disabled>Pause</button>
-                <button id="skipBtn" class="btn ghost" aria-label="Skip current period" disabled>Skip</button>
-                <button id="resetBtn" class="btn ghost" aria-label="Reset session">Reset</button>
-            </div>
+                        <div class="message" id="message">Ready to focus — press <strong>Start</strong> or hit
+                            <kbd>Space</kbd>.
+                        </div>
 
-            <div class="small-actions">
-                <div class="muted">Shortcuts: <kbd>Space</kbd> Start/Pause • <kbd>S</kbd> Skip • <kbd>R</kbd> Reset
-                </div>
-            </div>
+                        <div class="controls" role="toolbar" aria-label="Timer controls">
+                            <button id="startBtn" class="btn" aria-label="Start timer">Start</button>
+                            <button id="pauseBtn" class="btn ghost" aria-label="Pause timer" disabled>Pause</button>
+                            <button id="skipBtn" class="btn ghost" aria-label="Skip current period" disabled>Skip</button>
+                            <button id="resetBtn" class="btn ghost" aria-label="Reset session">Reset</button>
+                        </div>
 
-            <div class="progress-indicators" id="progress"></div>
+                        <div class="small-actions">
+                            <div class="muted">Shortcuts: <kbd>Space</kbd> Start/Pause • <kbd>S</kbd> Skip •
+                                <kbd>R</kbd> Reset • <kbd>&#8593;</kbd><kbd>&#8595;</kbd> Switch page
+                            </div>
+                        </div>
 
-            <div style="width:100%; text-align:center; margin-top:1rem;">
-                <button id="settingsBtn" class="btn ghost" aria-haspopup="true" aria-controls="settingsDialog">
-                    Settings
-                </button>
-            </div>
+                        <div class="progress-indicators" id="progress"></div>
 
-            <footer>
-                <div>By <strong>Tahrik Studio</strong></div>
-                <div class="muted">v2.0</div>
-            </footer>
-        </main>
+                        <div style="width:100%; text-align:center; margin-top:1rem;">
+                            <button id="settingsBtn" class="btn ghost" aria-haspopup="true" aria-controls="settingsDialog">
+                                Settings
+                            </button>
+                        </div>
 
-        <aside class="sidebar" aria-label="Settings and Statistics">
-            <div class="card" id="settingsDialog" role="region" aria-label="Timer Settings">
-                <label for="workInput">Work Duration (minutes)</label>
-                <input type="number" id="workInput" min="1" max="180" value="25" />
+                        <footer>
+                            <div>By <strong>Tahrik Studio</strong></div>
+                            <div class="muted">v2.0</div>
+                        </footer>
+                    </main>
+                </section>
 
-                <label for="shortInput" style="margin-top:0.75rem">Short Break (minutes)</label>
-                <input type="number" id="shortInput" min="1" max="60" value="5" />
+                <section class="page" id="pageStats" aria-label="Statistics">
+                    <div class="main stats-page">
+                        <div class="stats-header">
+                            <h2>Statistics</h2>
+                            <div class="subtitle">Your focus, tracked</div>
+                        </div>
 
-                <label for="longInput" style="margin-top:0.75rem">Long Break (minutes)</label>
-                <input type="number" id="longInput" min="5" max="120" value="15" />
+                        <div class="stat-hero">
+                            <div class="stat-hero-icon">⏱️</div>
+                            <div>
+                                <div class="stat-hero-num" id="todayNum">00:00:00</div>
+                                <div class="muted">Focus time today</div>
+                            </div>
+                        </div>
 
-                <label for="cyclesInput" style="margin-top:0.75rem">Cycles Before Long Break</label>
-                <input type="number" id="cyclesInput" min="2" max="8" value="4" />
+                        <div class="stat-tile-grid">
+                            <div class="stat-tile">
+                                <div class="stat-tile-icon">🔥</div>
+                                <div class="stat-tile-num" id="allNum">00:00:00</div>
+                                <div class="muted">All-time focus</div>
+                            </div>
+                            <div class="stat-tile">
+                                <div class="stat-tile-icon">✅</div>
+                                <div class="stat-tile-num" id="sessionsNum">0</div>
+                                <div class="muted">Sessions completed</div>
+                            </div>
+                        </div>
 
-                <div style="display:flex; gap:0.75rem; margin-top:1rem; flex-wrap:wrap;">
-                    <button id="saveSettings" class="btn">Save Settings</button>
-                    <button id="notifyToggle" class="btn ghost">Enable Notifications</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="muted">Today's Focus</div>
-                <div class="stat-grid">
-                    <div class="stat">
-                        <div class="num" id="todayNum">00:00:00</div>
-                        <div class="muted">Focus Time</div>
+                        <div class="card">
+                            <div class="muted">Current Session</div>
+                            <div style="display:flex; gap:1rem; margin-top:0.75rem;">
+                                <div style="flex:1">
+                                    <div class="muted">State</div>
+                                    <div id="stateLabel" style="font-weight:600; color:var(--accent-2)">WORK</div>
+                                </div>
+                                <div style="flex:1">
+                                    <div class="muted">Pomodoros</div>
+                                    <div id="countLabel" style="font-weight:600">0</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="stat">
-                        <div class="num" id="allNum">00:00:00</div>
-                        <div class="muted">All Time</div>
-                    </div>
-                </div>
+                </section>
             </div>
+        </div>
 
-            <div class="card">
-                <div class="muted">Current Session</div>
-                <div style="display:flex; gap:1rem; margin-top:0.75rem;">
-                    <div style="flex:1">
-                        <div class="muted">State</div>
-                        <div id="stateLabel" style="font-weight:600; color:var(--accent-2)">WORK</div>
-                    </div>
-                    <div style="flex:1">
-                        <div class="muted">Pomodoros</div>
-                        <div id="countLabel" style="font-weight:600">0</div>
-                    </div>
-                </div>
-            </div>
-        </aside>
+        <div class="pager-dots" id="pagerDots" role="tablist" aria-label="Pages">
+            <button class="pager-dot active" data-page="0" aria-label="Go to Timer" aria-current="true"></button>
+            <button class="pager-dot" data-page="1" aria-label="Go to Statistics"></button>
+        </div>
     </div>
 
     <!-- Completion Modal -->
@@ -565,8 +723,48 @@
         </div>
     </div>
 
+    <!-- Settings Modal -->
+    <div class="modal-backdrop" id="settingsBackdrop" role="dialog" aria-modal="true" aria-hidden="true"
+        aria-labelledby="settingsTitle">
+        <div class="modal" role="document" id="settingsDialog" aria-label="Timer Settings">
+            <h3 id="settingsTitle">Settings</h3>
+
+            <label for="workInput" style="margin-top:0.75rem">Work Duration (minutes)</label>
+            <input type="number" id="workInput" min="1" max="180" value="25" />
+
+            <label for="shortInput" style="margin-top:0.75rem">Short Break (minutes)</label>
+            <input type="number" id="shortInput" min="1" max="60" value="5" />
+
+            <label for="longInput" style="margin-top:0.75rem">Long Break (minutes)</label>
+            <input type="number" id="longInput" min="5" max="120" value="15" />
+
+            <label for="cyclesInput" style="margin-top:0.75rem">Cycles Before Long Break</label>
+            <input type="number" id="cyclesInput" min="2" max="8" value="4" />
+
+            <div style="display:flex; justify-content:flex-end; gap:0.75rem; margin-top:1.5rem; flex-wrap:wrap;">
+                <button id="notifyToggle" class="btn ghost">Enable Notifications</button>
+                <button id="closeSettings" class="btn ghost">Close</button>
+                <button id="saveSettings" class="btn">Save Settings</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirm Modal -->
+    <div class="modal-backdrop" id="confirmBackdrop" role="dialog" aria-modal="true" aria-hidden="true"
+        aria-labelledby="confirmTitle">
+        <div class="modal" role="document">
+            <h3 id="confirmTitle">Are you sure?</h3>
+            <p id="confirmDesc"></p>
+            <div style="display:flex; justify-content:flex-end; gap:0.75rem; margin-top:1.5rem;">
+                <button id="confirmCancel" class="btn ghost">Cancel</button>
+                <button id="confirmOk" class="btn">Confirm</button>
+            </div>
+        </div>
+    </div>
+
     <audio id="ding" preload="auto">
-        <source src="data:audio/wav;base64,UklGRlACAABXQVZFZm10IBAAAAABAAEAQB8AAIA+AAACABAAZGF0YQAAAAA="
+        <source
+            src="data:audio/wav;base64,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"
             type="audio/wav">
     </audio>
 
@@ -579,7 +777,8 @@
       SETTINGS: 'pomodoro_settings_v2',
       STATE: 'pomodoro_state_v2',
       TODAY_PREFIX: 'pomodoro_today_',
-      ALLTIME: 'pomodoro_alltime_v2'
+      ALLTIME: 'pomodoro_alltime_v2',
+      SESSIONS: 'pomodoro_sessions_v2'
     };
 
     const DEFAULTS = { workMin: 25, shortMin: 5, longMin: 15, cyclesBeforeLong: 4 };
@@ -596,6 +795,7 @@
       progress: document.getElementById('progress'),
       todayNum: document.getElementById('todayNum'),
       allNum: document.getElementById('allNum'),
+      sessionsNum: document.getElementById('sessionsNum'),
       stateLabel: document.getElementById('stateLabel'),
       countLabel: document.getElementById('countLabel'),
       workInput: document.getElementById('workInput'),
@@ -605,10 +805,22 @@
       saveSettings: document.getElementById('saveSettings'),
       notifyToggle: document.getElementById('notifyToggle'),
       settingsBtn: document.getElementById('settingsBtn'),
+      settingsBackdrop: document.getElementById('settingsBackdrop'),
+      closeSettings: document.getElementById('closeSettings'),
       modalBackdrop: document.getElementById('modalBackdrop'),
       modalOk: document.getElementById('modalOk'),
+      confirmBackdrop: document.getElementById('confirmBackdrop'),
+      confirmTitle: document.getElementById('confirmTitle'),
+      confirmDesc: document.getElementById('confirmDesc'),
+      confirmOk: document.getElementById('confirmOk'),
+      confirmCancel: document.getElementById('confirmCancel'),
       ding: document.getElementById('ding'),
-      timer: document.getElementById('timer')
+      timer: document.getElementById('timer'),
+      pagerViewport: document.getElementById('pagerViewport'),
+      pagerTrack: document.getElementById('pagerTrack'),
+      pagerPrev: document.getElementById('pagerPrev'),
+      pagerNext: document.getElementById('pagerNext'),
+      pagerDots: Array.from(document.querySelectorAll('.pager-dot'))
     };
 
     let settings = loadSettings();
@@ -686,12 +898,39 @@
       render();
     }
 
-    function skipPeriod() {
-      if (!confirm('Skip current period?')) return;
+    function confirmDialog(title, desc) {
+      return new Promise(resolve => {
+        els.confirmTitle.textContent = title;
+        els.confirmDesc.textContent = desc;
+        els.confirmBackdrop.style.display = 'flex';
+        els.confirmBackdrop.setAttribute('aria-hidden', 'false');
+        els.confirmOk.focus();
+
+        function finish(result) {
+          els.confirmBackdrop.style.display = 'none';
+          els.confirmBackdrop.setAttribute('aria-hidden', 'true');
+          document.removeEventListener('keydown', keyHandler);
+          els.confirmOk.removeEventListener('click', okHandler);
+          els.confirmCancel.removeEventListener('click', cancelHandler);
+          resolve(result);
+        }
+        function okHandler() { finish(true); }
+        function cancelHandler() { finish(false); }
+        function keyHandler(e) { if (e.key === 'Escape') finish(false); }
+
+        els.confirmOk.addEventListener('click', okHandler);
+        els.confirmCancel.addEventListener('click', cancelHandler);
+        document.addEventListener('keydown', keyHandler);
+      });
+    }
+
+    async function skipPeriod() {
+      if (!(await confirmDialog('Skip current period?', 'This will end the current focus/break period early.'))) return;
       stopTick();
       if (state.mode === STATES.WORK) {
         state.pomodoroCount = (state.pomodoroCount + 1) % settings.cyclesBeforeLong;
         addFocusSeconds(settings.workMin * 60);
+        addCompletedSession();
         state.mode = state.pomodoroCount === 0 ? STATES.LONG_BREAK : STATES.SHORT_BREAK;
         if (state.pomodoroCount === 0) showModal('Cycle Complete!', 'Great job! Take a longer break.');
       } else {
@@ -703,8 +942,8 @@
       render();
     }
 
-    function resetSession() {
-      if (!confirm('Reset session and counts?')) return;
+    async function resetSession() {
+      if (!(await confirmDialog('Reset session and counts?', 'This clears the current timer and cycle progress. Focus-time stats are kept.'))) return;
       state = { mode: STATES.WORK, endTs: null, running: false, startedAt: null, pomodoroCount: 0 };
       saveState();
       stopTick();
@@ -718,6 +957,7 @@
       if (state.mode === STATES.WORK) {
         state.pomodoroCount = (state.pomodoroCount + 1) % settings.cyclesBeforeLong;
         addFocusSeconds(settings.workMin * 60);
+        addCompletedSession();
         state.mode = state.pomodoroCount === 0 ? STATES.LONG_BREAK : STATES.SHORT_BREAK;
         if (state.pomodoroCount === 0) showModal('Cycle Complete!', 'You earned a long break!');
         notify('Focus session complete!');
@@ -824,11 +1064,19 @@
       renderStats();
     }
 
+    function addCompletedSession() {
+      const sessions = Number(localStorage.getItem(STORAGE.SESSIONS) || 0);
+      localStorage.setItem(STORAGE.SESSIONS, String(sessions + 1));
+      renderStats();
+    }
+
     function renderStats() {
       const today = Number(localStorage.getItem(STORAGE.TODAY_PREFIX + new Date().toDateString()) || 0);
       const all = Number(localStorage.getItem(STORAGE.ALLTIME) || 0);
+      const sessions = Number(localStorage.getItem(STORAGE.SESSIONS) || 0);
       els.todayNum.textContent = formatHMS(today);
       els.allNum.textContent = formatHMS(all);
+      els.sessionsNum.textContent = sessions;
     }
 
     function formatHMS(sec) {
@@ -844,6 +1092,31 @@
     els.resetBtn.onclick = resetSession;
     els.modalOk.onclick = closeModal;
 
+    function openSettings() {
+      els.workInput.value = settings.workMin;
+      els.shortInput.value = settings.shortMin;
+      els.longInput.value = settings.longMin;
+      els.cyclesInput.value = settings.cyclesBeforeLong;
+      els.settingsBackdrop.style.display = 'flex';
+      els.settingsBackdrop.setAttribute('aria-hidden', 'false');
+      els.workInput.focus();
+    }
+
+    function closeSettingsModal() {
+      els.settingsBackdrop.style.display = 'none';
+      els.settingsBackdrop.setAttribute('aria-hidden', 'true');
+      els.settingsBtn.focus();
+    }
+
+    els.settingsBtn.onclick = openSettings;
+    els.closeSettings.onclick = closeSettingsModal;
+    els.settingsBackdrop.addEventListener('click', e => {
+      if (e.target === els.settingsBackdrop) closeSettingsModal();
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && els.settingsBackdrop.style.display === 'flex') closeSettingsModal();
+    });
+
     els.saveSettings.onclick = () => {
       settings = {
         workMin: Math.max(1, +els.workInput.value || 25),
@@ -857,6 +1130,7 @@
       saveState();
       els.message.textContent = 'Settings saved!';
       render();
+      closeSettingsModal();
     };
 
     els.notifyToggle.onclick = () => {
@@ -869,7 +1143,71 @@
       if (e.code === 'Space') { e.preventDefault(); state.running ? pauseTimer() : startTimer(); }
       else if (e.key.toLowerCase() === 's') { e.preventDefault(); skipPeriod(); }
       else if (e.key.toLowerCase() === 'r') { e.preventDefault(); resetSession(); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); goToPage(currentPage - 1); }
+      else if (e.key === 'ArrowDown') { e.preventDefault(); goToPage(currentPage + 1); }
     });
+
+    const PAGE_COUNT = 2;
+    let currentPage = 0;
+
+    function goToPage(i) {
+      currentPage = Math.max(0, Math.min(PAGE_COUNT - 1, i));
+      els.pagerTrack.style.transform = `translateY(-${currentPage * 100}%)`;
+      els.pagerPrev.disabled = currentPage === 0;
+      els.pagerNext.disabled = currentPage === PAGE_COUNT - 1;
+      els.pagerDots.forEach((dot, i) => {
+        const active = i === currentPage;
+        dot.classList.toggle('active', active);
+        dot.setAttribute('aria-current', active ? 'true' : 'false');
+      });
+    }
+
+    els.pagerPrev.onclick = () => goToPage(currentPage - 1);
+    els.pagerNext.onclick = () => goToPage(currentPage + 1);
+    els.pagerDots.forEach(dot => {
+      dot.onclick = () => goToPage(+dot.dataset.page);
+    });
+
+    (function setupSwipe() {
+      let startX = 0, startY = 0, dragging = false;
+      const THRESHOLD = 50;
+
+      els.pagerViewport.addEventListener('touchstart', e => {
+        const t = e.touches[0];
+        startX = t.clientX;
+        startY = t.clientY;
+        dragging = true;
+      }, { passive: true });
+
+      els.pagerViewport.addEventListener('touchend', e => {
+        if (!dragging) return;
+        dragging = false;
+        const t = e.changedTouches[0];
+        const dx = t.clientX - startX;
+        const dy = t.clientY - startY;
+        if (Math.abs(dy) < THRESHOLD || Math.abs(dy) < Math.abs(dx)) return;
+        goToPage(dy < 0 ? currentPage + 1 : currentPage - 1);
+      });
+    })();
+
+    (function setupWheel() {
+      let wheelLocked = false;
+      const WHEEL_THRESHOLD = 12;
+      const LOCK_MS = 500;
+
+      els.pagerViewport.addEventListener('wheel', e => {
+        if (Math.abs(e.deltaY) < WHEEL_THRESHOLD || Math.abs(e.deltaY) < Math.abs(e.deltaX)) return;
+        e.preventDefault();
+        if (wheelLocked) return;
+        const next = currentPage + (e.deltaY > 0 ? 1 : -1);
+        if (next < 0 || next > PAGE_COUNT - 1) return;
+        wheelLocked = true;
+        goToPage(next);
+        setTimeout(() => { wheelLocked = false; }, LOCK_MS);
+      }, { passive: false });
+    })();
+
+    goToPage(0);
 
     buildProgress(settings.cyclesBeforeLong);
     render();
@@ -888,6 +1226,12 @@
     });
 
     window.__pomodoro = { state, settings, reset: () => localStorage.clear() && location.reload() };
+
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').catch(() => {});
+      });
+    }
   })();
 </script>
 </body>
